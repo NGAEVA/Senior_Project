@@ -4,11 +4,12 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     int multiplier = 2;
-    public int streak = 0;
+    public int combo = 0;
 	// Use this for initialization
 	void Start () {
-	
-	}
+        PlayerPrefs.SetInt("Combo", 0);
+        PlayerPrefs.SetInt("Mult", 1);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,23 +18,23 @@ public class GameManager : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //Destroy(col.gameObject);
+        Destroy(col.gameObject);
     }
 
     public void AddStreak()
     {
-        streak++;
-        if(streak >= 24)
+        combo++;
+        if(combo >= 24)
         {
             multiplier = 4;
         }
 
-        else if(streak >= 16)
+        else if(combo >= 16)
         {
             multiplier = 3;
         }
 
-        else if(streak >= 8)
+        else if(combo >= 8)
         {
             multiplier = 2;
         }
@@ -47,14 +48,14 @@ public class GameManager : MonoBehaviour {
 
     public void ResetStreak()
     {
-        streak = 0;
+        combo = 0;
         multiplier = 1;
         UpdateGUI();
     }
 
     void UpdateGUI()
     {
-        PlayerPrefs.SetInt("Streak", streak);
+        PlayerPrefs.SetInt("Combo", combo);
         PlayerPrefs.SetInt("Mult", multiplier);
     }
 

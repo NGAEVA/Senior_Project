@@ -48,7 +48,7 @@ public class Activator : MonoBehaviour {
                 active = false;
             }
 
-            if (Input.GetKeyDown(key) && !active)
+            else if (Input.GetKeyDown(key) && !active)
             {
                 GM.GetComponent<GameManager>().ResetStreak();
             }
