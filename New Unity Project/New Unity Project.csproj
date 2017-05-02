@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Activator.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Note.cs" />
     <Compile Include="Assets\Script\ScoreTracker.cs" />
   </ItemGroup>
